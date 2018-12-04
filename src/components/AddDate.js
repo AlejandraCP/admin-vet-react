@@ -21,6 +21,7 @@ class AddDate extends Component {
             symptom = this.symptom.current.value;
 
         const newDate = {
+            id: uuid(),
             namePet,
             owner,
             date,
@@ -28,6 +29,8 @@ class AddDate extends Component {
             symptom
         }
         this.props.createDate(newDate);
+
+        // e.reset()
     }
 
     render() {

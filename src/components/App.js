@@ -5,8 +5,8 @@ import AddDate from './AddDate';
 
 class App extends Component {
 
-  createDate = () => {
-    console.log('desde app');
+  createDate = (dateObj) => {
+    console.log(dateObj);
   }
   
   render() {

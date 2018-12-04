@@ -1,20 +1,33 @@
 import React, { Component } from 'react';
+import uuid from 'uuid'
 
 class AddDate extends Component {
 
     state = {};
 
     namePet = React.createRef();
-    owner =React.createRef();
+    owner =React.createRef();  
     date = React.createRef();
     hour = React.createRef();
     symptom = React.createRef();
 
     createDate = e => {
         e.preventDefault();
-        this.props.createDate();
-        console.log(this.namePet.current.value);
         
+        const namePet = this.namePet.current.value,
+            owner = this.owner.current.value,
+            date = this.date.current.value,
+            hour = this.hour.current.value,
+            symptom = this.symptom.current.value;
+
+        const newDate = {
+            namePet,
+            owner,
+            date,
+            hour,
+            symptom
+        }
+        this.props.createDate(newDate);
     }
 
     render() {
@@ -25,40 +38,40 @@ class AddDate extends Component {
           <div className='d-flex align-start'>
             <div className='col-6'>
                 <form className='pl' onSubmit={this.createDate}>
-                    <div className="form-group row">
-                        <label className="col-sm-4 col-lg-2 col-form-label">Nombre Mascota</label>
-                        <div className="col-sm-8 col-lg-10">
-                            <input type="text" className="form-control" placeholder="Nombre Mascota" ref={this.namePet} />
+                    <div>
+                        <label>Nombre Mascota</label>
+                        <div>
+                            <input type="text" placeholder="Nombre Mascota" ref={this.namePet} />
                         </div>
                     </div>
-                    <div className="form-group row">
-                        <label className="col-sm-4 col-lg-2 col-form-label">Nombre Dueño</label>
-                        <div className="col-sm-8 col-lg-10">
-                            <input type="text" className="form-control"  placeholder="Nombre Dueño de la Mascota" ref={this.owner} />
+                    <div>
+                        <label>Nombre Dueño</label>
+                        <div>
+                            <input type="text"  placeholder="Nombre Dueño de la Mascota" ref={this.owner} />
                         </div>
                     </div>
 
-                    <div className="form-group row">
-                        <label className="col-sm-4 col-lg-2 col-form-label">Fecha</label>
-                        <div className="col-sm-8 col-lg-4  mb-4 mb-lg-0">
-                            <input type="date" className="form-control" ref={this.date}/>
+                    <div>
+                        <label>Fecha</label>
+                        <div>
+                            <input type="date" ref={this.date}/>
                         </div>                            
 
-                        <label className="col-sm-4 col-lg-2 col-form-label">Hora</label>
-                        <div className="col-sm-8 col-lg-4">
-                            <input type="time" className="form-control" ref={this.hour}/>
+                        <label >Hora</label>
+                        <div className="">
+                            <input type="time" ref={this.hour}/>
                         </div>
                     </div>
 
-                    <div className="form-group row">
-                        <label className="col-sm-4 col-lg-2 col-form-label">Sintomas</label>
-                        <div className="col-sm-8 col-lg-10">
-                            <textarea  className="form-control" ref={this.symptom}></textarea>
+                    <div>
+                        <label>Sintomas</label>
+                        <div>
+                            <textarea  ref={this.symptom}></textarea>
                         </div>
                     </div>
-                    <div className="form-group row justify-content-end">
-                        <div className="col-sm-3">
-                            <button type="submit" className="btn btn-success w-100">Agregar</button>
+                    <div>
+                        <div>
+                            <button type="submit" className="">Agregar</button>
                         </div>
                     </div>
                 </form>

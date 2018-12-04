@@ -5,8 +5,16 @@ import AddDate from './AddDate';
 
 class App extends Component {
 
+  state = {
+    dates: []
+  }
+
   createDate = (dateObj) => {
-    console.log(dateObj);
+    let dates = [...this.state.dates, dateObj]
+    
+    this.setState({
+      dates
+    })
   }
   
   render() {

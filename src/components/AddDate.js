@@ -3,7 +3,9 @@ import uuid from 'uuid'
 
 class AddDate extends Component {
 
-    state = {};
+    state = {
+        errorForm: false
+    };
 
     namePet = React.createRef();
     owner =React.createRef();  
@@ -20,17 +22,29 @@ class AddDate extends Component {
             hour = this.hour.current.value,
             symptom = this.symptom.current.value;
 
-        const newDate = {
-            id: uuid(),
-            namePet,
-            owner,
-            date,
-            hour,
-            symptom
-        }
-        this.props.createDate(newDate);
+        if(namePet === '' || owner === '' || date === '' || hour === '' || symptom === '') {
+            this.setState({
+                errorForm: true
+            })
+        } else {
+            const newDate = {
+                id: uuid(),
+                namePet,
+                owner,
+                date,
+                hour,
+                symptom
+            }
+            this.props.createDate(newDate);
+    
+            e.currentTarget.reset();
 
-        // e.reset()
+            this.setState({
+                errorForm: false;
+            })
+        }
+
+        
     }
 
     render() {

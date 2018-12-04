@@ -16,3 +16,47 @@ code {
 .text-center {
   text-align: center;
 }
+
+.col-6 {
+  width: 50vw;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-start {
+  align-content: flex-start;
+}
+
+.ml {
+  margin-left: 1rem;
+}
+
+.mr {
+  margin-right: 1rem;
+}
+
+.mt {
+  margin-top: 1rem;
+}
+
+.mb {
+  margin-bottom: 1rem
+}
+
+.pt {
+  padding-top: 1rem;
+}
+
+.pb {
+  padding-bottom: 1rem;
+}
+
+.pl {
+  padding-left: 1rem;
+}
+
+.pr {
+  padding-right: 1rem;
+}

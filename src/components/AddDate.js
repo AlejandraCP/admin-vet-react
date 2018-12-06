@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import uuid from 'uuid'
-
 class AddDate extends Component {
 
     state = {
         errorForm: false
-    };
+    }
 
     namePet = React.createRef();
     owner =React.createRef();  
@@ -40,7 +39,7 @@ class AddDate extends Component {
             e.currentTarget.reset();
 
             this.setState({
-                errorForm: false;
+                errorForm: false
             })
         }
 
@@ -52,8 +51,6 @@ class AddDate extends Component {
       return (
         <div>
           <h2>Agregar Cita</h2>
-          <div className='d-flex align-start'>
-            <div className='col-6'>
                 <form className='pl' onSubmit={this.createDate}>
                     <div>
                         <label>Nombre Mascota</label>
@@ -92,9 +89,12 @@ class AddDate extends Component {
                         </div>
                     </div>
                 </form>
-            </div>
-            <div className='col-6'>dos</div>
-          </div>  
+                {this.state.errorForm ? 
+                    <div>
+                        <p>Completar todos los campos del formulario</p>
+                    </div>    
+                    : ''
+            } 
         </div>
       );
     }

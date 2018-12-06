@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import AddDate from './AddDate';
-
+import ListDates from './ListDates';
 
 class App extends Component {
 
@@ -22,7 +22,16 @@ class App extends Component {
     return (
       <div className="App">
         <Header title={titleHeader}/>
-        <AddDate createDate={this.createDate}/>
+        <div className='d-flex align-start'>
+            <div className='col-6'>
+              <AddDate createDate={this.createDate}/>
+            </div>
+            <div className='col-6'>
+              <ListDates dates={this.state.dates}/>
+            </div>
+        </div>
+        
+        
       </div>
     );
   }

@@ -60,3 +60,13 @@ code {
 .pr {
   padding-right: 1rem;
 }
+
+.hide-dates {
+  display: none;
+}
+  
+.show-dates {
+  display: block;
+}
+
+

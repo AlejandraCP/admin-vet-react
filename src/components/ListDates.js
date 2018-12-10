@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Cita from './Cita';
+import PropTypes from 'prop-types';
 
 class ListDates extends Component {
     render() {
@@ -19,4 +20,8 @@ class ListDates extends Component {
     }
 }
 
+ListDates.propTypes = {
+    dates: PropTypes.array.isRequired,
+    deleteDate: PropTypes.func.isRequired
+}
 export default ListDates;

@@ -9,12 +9,40 @@ class App extends Component {
     dates: []
   }
 
+  componentDidMount() {
+    const datesInLS = localStorage.getItem('citas')
+    if(datesInLS){
+      this.setState({
+        dates: JSON.parse(datesInLS)
+      })
+    }
+
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem(
+      'citas',
+      JSON.stringify(this.state.dates)
+    )
+  }
+
   createDate = (dateObj) => {
     let dates = [...this.state.dates, dateObj]
     
     this.setState({
       dates
     })
+  }
+
+  deleteDate = id => {
+    const currentDates = [...this.state.dates];
+
+    const dates = currentDates.filter( dates => dates.id !== id);
+
+    this.setState ({
+      dates
+    })
+    
   }
   
   render() {
@@ -27,7 +55,7 @@ class App extends Component {
               <AddDate createDate={this.createDate}/>
             </div>
             <div className='col-6'>
-              <ListDates dates={this.state.dates}/>
+              <ListDates dates={this.state.dates} deleteDate={this.deleteDate}/>
             </div>
         </div>
         

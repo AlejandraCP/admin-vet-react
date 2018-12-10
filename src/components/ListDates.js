@@ -10,7 +10,7 @@ class ListDates extends Component {
                 <div>{mesage}</div>
                 <div>
                     {Object.keys(dates).map(date => (
-                        <Cita key={date} info={dates[date]}/>
+                        <Cita key={date} info={dates[date]} deleteDate={this.props.deleteDate}/>
                     ))}
                 </div>
             </div>
